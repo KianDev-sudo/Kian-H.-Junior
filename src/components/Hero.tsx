@@ -30,7 +30,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ setViewMode }) => {
-  const { profile, isPhotoVisible, openProfileModal } = useProfile();
+  const { profile, openProfileModal } = useProfile();
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
@@ -195,26 +195,13 @@ export const Hero: React.FC<HeroProps> = ({ setViewMode }) => {
               
               {/* Profile Image Frame or Initials Monogram */}
               <div className="relative aspect-4/3 w-full bg-slate-900 overflow-hidden flex items-center justify-center">
-                {profile.profileImage && isPhotoVisible ? (
-                  <>
-                    <img
-                      src={profile.profileImage}
-                      alt={profile.name}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {/* Gradient vignette on image */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-                  </>
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-indigo-700 via-indigo-900 to-slate-950 text-white flex flex-col items-center justify-center p-6 text-center">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center font-bold text-3xl mb-2 shadow-xl">
-                      {getInitials(profile.name)}
-                    </div>
-                    <div className="text-sm font-semibold">{profile.name}</div>
-                    <div className="text-xs text-indigo-200">Executive ICT Candidate Profile</div>
+                <div className="w-full h-full bg-gradient-to-br from-indigo-700 via-indigo-900 to-slate-950 text-white flex flex-col items-center justify-center p-6 text-center">
+                  <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center font-bold text-3xl mb-2 shadow-xl">
+                    {getInitials(profile.name)}
                   </div>
-                )}
+                  <div className="text-sm font-semibold">{profile.name}</div>
+                  <div className="text-xs text-indigo-200">Executive ICT Candidate Profile</div>
+                </div>
 
                 {/* Floating Status & Credentials Badges on Image */}
                 <div className="absolute top-3 left-3">
