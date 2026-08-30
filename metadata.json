@@ -1,0 +1,8 @@
+{
+  "name": "Remix Brighton Omondi Umira - Portfolio \u0026 CV",
+  "description": "Interactive portfolio and curriculum vitae web application for Brighton Omondi Umira (ICT Student, Full-Stack Developer, IT Support \u0026 Networking) featuring dark mode toggle, interactive project showcases, skill matrix, and printable CV view.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
