@@ -195,7 +195,18 @@ export const Hero: React.FC<HeroProps> = ({ setViewMode }) => {
               
               {/* Profile Image Frame or Initials Monogram */}
               <div className="relative aspect-4/3 w-full bg-slate-900 overflow-hidden flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-br from-indigo-700 via-indigo-900 to-slate-950 text-white flex flex-col items-center justify-center p-6 text-center">
+                <img
+                  src="/images/profile.jpg"
+                  alt={profile.name}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                {/* Gradient vignette on image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                <div className="hidden w-full h-full bg-gradient-to-br from-indigo-700 via-indigo-900 to-slate-950 text-white flex-col items-center justify-center p-6 text-center">
                   <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center font-bold text-3xl mb-2 shadow-xl">
                     {getInitials(profile.name)}
                   </div>
